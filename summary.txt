@@ -1,0 +1,43 @@
+React
+   ↓
+Three.js
+   ↓
+React Three Fiber
+   ↓
+Drei
+   ↓
+Framer Motion
+
+
+
+
+App.jsx
+   ↓
+Website structure
+
+App.css
+   ↓
+Website styling
+
+index.css
+   ↓
+Global styling
+
+
+
+//Creating
+
+3D objects
+lights
+cameras
+materials
+particles
+animations
+
+
+Canvas
+│
+├── Camera
+├── Scene
+├── Lights
+└── Objects
