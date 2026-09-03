@@ -4,16 +4,21 @@ import { RoundedBox, Text } from "@react-three/drei";
 import * as THREE from "three";
 
 const technologies = [
-  { name: "React.js", color: "#61DAFB" },
-  { name: "Node.js", color: "#68A063" },
-  { name: "Express", color: "#555555" },
-  { name: "MongoDB", color: "#47A248" },
-  { name: "C++", color: "#00599C" },
-  { name: "JavaScript", color: "#F7DF1E" },
-  { name: "LangChain", color: "#1C9A73" },
-  { name: "GenAI", color: "#A855F7" },
-  { name: "LangGraph", color: "#FF6B6B" },
-  { name: "Docker", color: "#2496ED" },
+  { name: "React.js", color: "#61DAFB" },       // Cyan
+  { name: "DSA", color: "#F59E0B" },             // Amber
+  { name: "Express", color: "#E5E7EB" },        // Light Gray
+  { name: "MongoDB", color: "#10B981" },        // Emerald
+  { name: "C++", color: "#3B82F6" },            // Blue
+  { name: "JavaScript", color: "#FACC15" },      // Yellow
+  { name: "LangChain", color: "#22C55E" },      // Green
+  { name: "GenAI", color: "#A855F7" },           // Purple
+  { name: "LangGraph", color: "#F97316" },       // Orange
+  { name: "Docker", color: "#0EA5E9" },          // Sky Blue
+  { name: "SQL", color: "#14B8A6" },             // Teal
+  { name: "Kubernetes", color: "#6366F1" },      // Indigo
+  { name: "GitGitHub", color: "#F43F5E" },      // Rose
+  { name: "Postman", color: "#F97316" },         // Orange
+  { name: "VS Code", color: "#38BDF8" },         // Light Blue
 ];
 /*
 =====================================================
@@ -21,10 +26,10 @@ const technologies = [
 =====================================================
 */
 
-const columns = 5;
+const columns = 3;
 
 const cubeSize = 0.72;
-const gap = 0.16;
+const gap = 0.36;
 
 const horizontalSpacing = cubeSize + gap;
 const verticalSpacing = cubeSize + gap;
@@ -34,7 +39,7 @@ const verticalSpacing = cubeSize + gap;
 =====================================================
   ORIGINAL POSITIONS
 
-  2 columns × 5 rows
+  3 columns × 4 rows
 
   This creates a taller Y-axis layout.
 =====================================================
@@ -85,9 +90,9 @@ function TechCubeItem({
   );
 
   const velocity = useRef({
-    x: 0,
-    y: 0,
-    z: 0,
+    x: 5,
+    y: 5,
+    z: 5,
   });
 
 
@@ -135,8 +140,8 @@ function TechCubeItem({
 
       const safeDistance = Math.max(
         distance,
-        0.15
-      );
+         0.15
+       );
 
       const force =
         (reactionRadius - safeDistance) /
@@ -483,12 +488,12 @@ function TechScene() {
 export default function TechCube() {
 
   return (
-    <div className="tech-cube-wrapper">
+    <div className="technology-cubes">
 
       <Canvas
         camera={{
           position: [0, 0, 6],
-          fov: 45,
+          fov: 50,
         }}
         shadows
         dpr={[1, 2]}
