@@ -3,6 +3,7 @@ import { Stars, Sparkles } from "@react-three/drei";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import TechCube from "./components/TechCube";
 
 import "./index.css";
 
@@ -15,12 +16,14 @@ function App() {
       ========================================= */}
 
       <div className="background-canvas">
+
         <Canvas
           camera={{
             position: [0, 0, 6],
             fov: 50,
           }}
         >
+
           <ambientLight intensity={0.4} />
 
           <Stars
@@ -38,12 +41,18 @@ function App() {
             size={2}
             speed={0.4}
           />
+
         </Canvas>
+
       </div>
 
-      {/* SPACE DARKNESS */}
+
+      {/* =========================================
+          DARK SPACE OVERLAY
+      ========================================= */}
 
       <div className="space-overlay"></div>
+
 
       {/* =========================================
           FIXED SHUBHAM IMAGE
@@ -65,7 +74,7 @@ function App() {
 
 
       {/* =========================================
-          WEBSITE CONTENT
+          WEBSITE
       ========================================= */}
 
       <div className="website">
@@ -74,44 +83,102 @@ function App() {
 
         <Hero />
 
-        {/* Extra content to demonstrate scrolling */}
 
-        <section className="dummy-section" id="about">
-          <h2>About Me</h2>
+        {/* =========================================
+            TECHNOLOGIES
+        ========================================= */}
 
-          <p>
-            I am Shubham Gupta, a Developer and AI Architect
-            passionate about building intelligent applications.
-          </p>
+        <section
+          className="technology-section"
+          id="technologies"
+        >
+
+          {/* LEFT / CONTENT SIDE */}
+
+          <div className="technology-content">
+
+            <span className="section-tag">
+              MY TECHNOLOGIES
+            </span>
+
+            <h2>
+              Technologies I
+              <span>Work With</span>
+            </h2>
+
+            <p>
+              I build modern full-stack and AI-powered
+              applications using these technologies.
+            </p>
+
+
+            <div className="technology-info">
+
+              <div>
+                <strong>10+</strong>
+                <span>Technologies</span>
+              </div>
+
+              <div>
+                <strong>250+</strong>
+                <span>DSA Problems</span>
+              </div>
+
+              <div>
+                <strong>5+</strong>
+                <span>Projects</span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* RIGHT / 3D CUBE SIDE */}
+
+          <div className="technology-cubes">
+
+            <TechCube />
+
+          </div>
+
         </section>
 
 
-        <section className="dummy-section" id="projects">
+        {/* =========================================
+            PROJECTS
+        ========================================= */}
+
+        <section
+          className="dummy-section"
+          id="projects"
+        >
+
           <h2>Projects</h2>
 
           <p>
             AI systems, full-stack applications, RAG,
             generative AI and immersive experiences.
           </p>
+
         </section>
 
 
-        <section className="dummy-section" id="skills">
-          <h2>Skills</h2>
+        {/* =========================================
+            CONTACT
+        ========================================= */}
 
-          <p>
-            React • Node.js • MongoDB • AI • LLM •
-            LangChain • RAG • Agentic AI
-          </p>
-        </section>
+        <section
+          className="dummy-section"
+          id="contact"
+        >
 
-
-        <section className="dummy-section" id="contact">
           <h2>Let's Connect</h2>
 
           <p>
             Let's build something intelligent together.
           </p>
+
         </section>
 
       </div>
