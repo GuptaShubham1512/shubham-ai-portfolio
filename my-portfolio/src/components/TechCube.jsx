@@ -15,7 +15,6 @@ const technologies = [
   { name: "LangGraph", color: "#FF6B6B" },
   { name: "Docker", color: "#2496ED" },
 ];
-
 /*
 =====================================================
   PLAYGROUND SETTINGS
