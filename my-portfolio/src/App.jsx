@@ -8,6 +8,7 @@ import Technology from "./components/technology";
 import Projects from "./components/Projects";
 import "./index.css";
 
+
 function App() {
   return (
     <div className="app">
@@ -56,7 +57,7 @@ function App() {
       <div className="fixed-human">
         <div className="human-image-wrapper">
           <img
-            src="/src/assets/shubham.jpeg"
+            src="/ai/shubham.jpeg"
             alt="Shubham Gupta"
             className="human-image"
           />
