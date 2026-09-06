@@ -2,41 +2,42 @@ function Navbar() {
   return (
     <header className="navbar">
 
+      {/* Logo */}
       <a href="#home" className="brand">
         S<span>.</span>
       </a>
 
+      {/* Navigation */}
       <nav className="navigation">
 
-        <a
-          href="#home"
-          className="nav-active"
-        >
+        <a href="#home" className="nav-active">
           Home
         </a>
 
-        <a href="#about">
-          About
+        <a href="#technology">
+          Technology / Skills
         </a>
 
         <a href="#projects">
           Projects
         </a>
 
-        <a href="#skills">
-          Skills
+        <a href="#certificates">
+          Certificates
+        </a>
+
+        <a href="#achievements">
+          Achievements
         </a>
 
         <a href="#contact">
-          Contact
+          Contacts
         </a>
 
       </nav>
 
-      <a
-        href="#contact"
-        className="talk-button"
-      >
+      {/* Let's Talk Button */}
+      <a href="#contact" className="talk-button">
         Let's Talk
       </a>
 

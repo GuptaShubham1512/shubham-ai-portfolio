@@ -41,7 +41,7 @@ function Contact() {
 
             {/* GMAIL */}
             <a
-              href="mailto:YOUR_EMAIL@gmail.com?subject=Job Opportunity - Shubham Gupta"
+              href="mailto:shubhamkrgupta15@gmail.com?subject=Job Opportunity - Shubham Gupta"
               className="contact-option"
               aria-label="Contact Shubham Gupta via Gmail"
             >
@@ -64,7 +64,7 @@ function Contact() {
 
             {/* WHATSAPP */}
             <a
-              href="https://wa.me/YOUR_NUMBER?text=Hi%20Shubham%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity."
+              href="https://wa.me/7479774187?text=Hi%20Shubham%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity."
               target="_blank"
               rel="noopener noreferrer"
               className="contact-option"

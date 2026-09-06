@@ -1,17 +1,21 @@
 import { Canvas } from "@react-three/fiber";
 import { Stars, Sparkles } from "@react-three/drei";
 import React from "react";
+
 import shubhamImage from "./assets/shubham.jpeg";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechCube from "./components/TechCube";
 import Technology from "./components/technology";
 import Projects from "./components/Projects";
-import "./index.css";
 import Certification from "./components/Certification";
 import Achievements from "./components/Achievments";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+
+import "./index.css";
+
 function App() {
   return (
     <div className="app">
@@ -19,7 +23,6 @@ function App() {
       {/* =========================================
           FIXED 3D SPACE BACKGROUND
       ========================================= */}
-
       <div className="background-canvas">
         <Canvas
           camera={{
@@ -50,13 +53,11 @@ function App() {
       {/* =========================================
           DARK SPACE OVERLAY
       ========================================= */}
-
       <div className="space-overlay"></div>
 
       {/* =========================================
           FIXED SHUBHAM IMAGE
       ========================================= */}
-
       <div className="fixed-human">
         <div className="human-image-wrapper">
           <img
@@ -68,57 +69,66 @@ function App() {
       </div>
 
       {/* =========================================
-          WEBSITE
+          WEBSITE CONTENT
       ========================================= */}
-
       <div className="website">
 
+        {/* =========================================
+            NAVBAR
+        ========================================= */}
         <Navbar />
 
         {/* =========================================
-            HERO
+            HOME
         ========================================= */}
-
-        <Hero />
+        <section id="home">
+          <Hero />
+        </section>
 
         {/* =========================================
-            TECHNOLOGIES
+            TECHNOLOGY / SKILLS
         ========================================= */}
-        <Technology />
-       
+        <section id="technology">
+          <Technology />
 
-            {/* =====================================
-                3D TECHNOLOGY CUBES
-            ===================================== */}
-
-        <TechCube/>  
-
-         
-
-        
+          {/* 3D Technology Cubes */}
+          <TechCube />
+        </section>
 
         {/* =========================================
             PROJECTS
         ========================================= */}
+        <section id="projects">
+          <Projects />
+        </section>
 
-       <Projects/>
+        {/* =========================================
+            CERTIFICATES
+        ========================================= */}
+        <section id="certificates">
+          <Certification />
+        </section>
 
-       <Certification/>
-
-       <Achievements/>
-       <Contact/>
-       <Footer/>
-     
-       
+        {/* =========================================
+            ACHIEVEMENTS
+        ========================================= */}
+        <section id="achievements">
+          <Achievements />
+        </section>
 
         {/* =========================================
             CONTACT
         ========================================= */}
+        <section id="contact">
+          <Contact />
+        </section>
 
-        
+        {/* =========================================
+            FOOTER
+        ========================================= */}
+        <Footer />
 
       </div>
-
     </div>
   );
 }

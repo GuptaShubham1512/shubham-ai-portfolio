@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import pythonCert from "../assets/certificates/image.png";
 
 const projects = [
   {
     title: "Python Programming Certificate",
     description:
       "Certificate in Python programming covering core programming concepts, problem-solving, and practical Python development.",
-    image: "/assets/certificates/python.png",
+    image: pythonCert,
     tech: ["Python", "Programming", "Problem Solving"],
     issuer: "Open Edge Python Institute",
   },
@@ -94,17 +95,16 @@ function Projects() {
 
         <div className="availability">
           <span className="online-dot"></span>
-          Projects
+          Certificates
         </div>
 
         <h1>
           <span className="title-white">My</span>{" "}
-          <span className="title-gradient">Projects</span>
+          <span className="title-gradient">Certificates</span>
         </h1>
 
         <p>
-          A collection of projects I have built using modern
-          software engineering and AI technologies.
+          A collection of certificates I have earned in various domains of technology.
         </p>
 
       </div>
