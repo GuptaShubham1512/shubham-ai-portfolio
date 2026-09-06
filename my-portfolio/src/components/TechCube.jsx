@@ -1,81 +1,79 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { RoundedBox, Text } from "@react-three/drei";
 import * as THREE from "three";
 
+/* =====================================================
+   TECHNOLOGIES
+===================================================== */
+
 const technologies = [
-  { name: "React.js", color: "#61DAFB" },       // Cyan
-  { name: "DSA", color: "#F59E0B" },             // Amber
-  { name: "Express", color: "#E5E7EB" },        // Light Gray
-  { name: "MongoDB", color: "#10B981" },        // Emerald
-  { name: "C++", color: "#3B82F6" },            // Blue
-  { name: "JavaScript", color: "#FACC15" },      // Yellow
-  { name: "LangChain", color: "#22C55E" },      // Green
-  { name: "GenAI", color: "#A855F7" },           // Purple
-  { name: "LangGraph", color: "#F97316" },       // Orange
-  { name: "Docker", color: "#0EA5E9" },          // Sky Blue
-  { name: "SQL", color: "#14B8A6" },             // Teal
-  { name: "Kubernetes", color: "#6366F1" },      // Indigo
-  { name: "GitGitHub", color: "#F43F5E" },      // Rose
-  { name: "Postman", color: "#F97316" },         // Orange
-  { name: "VS Code", color: "#38BDF8" },         // Light Blue
+  { name: "React.js", color: "#61DAFB" },
+  { name: "DSA", color: "#F59E0B" },
+  { name: "Express", color: "#E5E7EB" },
+  { name: "MongoDB", color: "#10B981" },
+  { name: "C++", color: "#3B82F6" },
+
+  { name: "JavaScript", color: "#FACC15" },
+  { name: "LangChain", color: "#22C55E" },
+  { name: "GenAI", color: "#A855F7" },
+  { name: "LangGraph", color: "#F97316" },
+  { name: "Docker", color: "#0EA5E9" },
+
+  { name: "SQL", color: "#14B8A6" },
+  { name: "Kubernetes", color: "#6366F1" },
+  { name: "GitGitHub", color: "#F43F5E" },
+  { name: "Postman", color: "#F97316" },
+  { name: "VS Code", color: "#38BDF8" },
 ];
-/*
-=====================================================
-  PLAYGROUND SETTINGS
-=====================================================
-*/
-
-const columns = 3;
-
-const cubeSize = 0.72;
-const gap = 0.36;
-
-const horizontalSpacing = cubeSize + gap;
-const verticalSpacing = cubeSize + gap;
 
 
-/*
-=====================================================
-  ORIGINAL POSITIONS
+/* =====================================================
+   GRID
+   5 COLUMNS × 3 ROWS
+===================================================== */
 
-  3 columns × 4 rows
+const COLUMNS = 5;
+const ROWS = 3;
 
-  This creates a taller Y-axis layout.
-=====================================================
-*/
+const CUBE_SIZE = 0.72;
+const GAP = 0.36;
+
+const HORIZONTAL_SPACING = CUBE_SIZE + GAP;
+const VERTICAL_SPACING = CUBE_SIZE + GAP;
+
+
+/* =====================================================
+   GET ORIGINAL CUBE POSITION
+===================================================== */
 
 function getOriginalPosition(index) {
-  const row = Math.floor(index / columns);
-  const column = index % columns;
+  const row = Math.floor(index / COLUMNS);
+  const column = index % COLUMNS;
 
   const totalWidth =
-    (columns - 1) * horizontalSpacing;
+    (COLUMNS - 1) * HORIZONTAL_SPACING;
 
   const totalHeight =
-    4 * verticalSpacing;
-
-  const x =
-    column * horizontalSpacing -
-    totalWidth / 2;
-
-  const y =
-    totalHeight / 2 -
-    row * verticalSpacing;
+    (ROWS - 1) * VERTICAL_SPACING;
 
   return {
-    x,
-    y,
+    x:
+      column * HORIZONTAL_SPACING -
+      totalWidth / 2,
+
+    y:
+      totalHeight / 2 -
+      row * VERTICAL_SPACING,
+
     z: 0,
   };
 }
 
 
-/*
-=====================================================
-  CUBE
-=====================================================
-*/
+/* =====================================================
+   INDIVIDUAL CUBE
+===================================================== */
 
 function TechCubeItem({
   technology,
@@ -85,14 +83,15 @@ function TechCubeItem({
 }) {
   const group = useRef();
 
-  const original = useRef(
-    getOriginalPosition(index)
+  const originalPosition = useMemo(
+    () => getOriginalPosition(index),
+    [index]
   );
 
   const velocity = useRef({
-    x: 5,
-    y: 5,
-    z: 5,
+    x: 0,
+    y: 0,
+    z: 0,
   });
 
 
@@ -101,47 +100,29 @@ function TechCubeItem({
 
     const position = group.current.position;
 
-    /*
-    =================================================
-      MOUSE POSITION
+    /* -----------------------------------------------
+       MOUSE DISTANCE
+    ------------------------------------------------ */
 
-      mouse.x / mouse.y are already converted
-      into the actual 3D plane coordinates.
-    =================================================
-    */
+    const dx =
+      position.x - mouse.current.x;
 
-    const mouseX = mouse.current.x;
-    const mouseY = mouse.current.y;
+    const dy =
+      position.y - mouse.current.y;
 
-
-    /*
-    =================================================
-      DISTANCE FROM MOUSE
-    =================================================
-    */
-
-    const dx = position.x - mouseX;
-    const dy = position.y - mouseY;
-
-    const distance = Math.sqrt(
-      dx * dx + dy * dy
-    );
+    const distance =
+      Math.sqrt(dx * dx + dy * dy);
 
 
-    /*
-    =================================================
-      MOUSE REPULSION
-    =================================================
-    */
+    /* -----------------------------------------------
+       MOUSE REPULSION
+    ------------------------------------------------ */
 
     const reactionRadius = 1.15;
 
     if (distance < reactionRadius) {
-
-      const safeDistance = Math.max(
-        distance,
-         0.15
-       );
+      const safeDistance =
+        Math.max(distance, 0.15);
 
       const force =
         (reactionRadius - safeDistance) /
@@ -152,7 +133,6 @@ function TechCubeItem({
 
       const directionY =
         dy / safeDistance;
-
 
       velocity.current.x +=
         directionX * force * 0.035;
@@ -165,57 +145,43 @@ function TechCubeItem({
     }
 
 
-    /*
-    =================================================
-      RETURN TO ORIGINAL POSITION
-
-      Keeps the cubes organized after interaction.
-    =================================================
-    */
-
-    const returnX =
-      original.current.x - position.x;
-
-    const returnY =
-      original.current.y - position.y;
-
-    const returnZ =
-      original.current.z - position.z;
-
+    /* -----------------------------------------------
+       SPRING BACK TO ORIGINAL POSITION
+    ------------------------------------------------ */
 
     velocity.current.x +=
-      returnX * 0.014;
+      (originalPosition.x - position.x) *
+      0.014;
 
     velocity.current.y +=
-      returnY * 0.014;
+      (originalPosition.y - position.y) *
+      0.014;
 
     velocity.current.z +=
-      returnZ * 0.02;
+      (originalPosition.z - position.z) *
+      0.02;
 
 
-    /*
-    =================================================
-      DAMPING
-    =================================================
-    */
+    /* -----------------------------------------------
+       FRICTION
+    ------------------------------------------------ */
 
     velocity.current.x *= 0.90;
     velocity.current.y *= 0.90;
     velocity.current.z *= 0.88;
 
 
-    /*
-    =================================================
-      MOVEMENT
+    /* -----------------------------------------------
+       FRAME NORMALIZATION
+    ------------------------------------------------ */
 
-      Prevent huge frame-rate-dependent jumps.
-    =================================================
-    */
+    const frameScale =
+      Math.min(delta * 60, 1.5);
 
-    const frameScale = Math.min(
-      delta * 60,
-      1.5
-    );
+
+    /* -----------------------------------------------
+       UPDATE POSITION
+    ------------------------------------------------ */
 
     position.x +=
       velocity.current.x * frameScale;
@@ -227,15 +193,9 @@ function TechCubeItem({
       velocity.current.z * frameScale;
 
 
-    /*
-    =================================================
-      HARD X/Y BOUNDARIES
-
-      THIS IS THE IMPORTANT FIX.
-
-      Cubes can NEVER escape the plane.
-    =================================================
-    */
+    /* -----------------------------------------------
+       HARD BOUNDARIES
+    ------------------------------------------------ */
 
     position.x = THREE.MathUtils.clamp(
       position.x,
@@ -249,15 +209,6 @@ function TechCubeItem({
       bounds.maxY
     );
 
-
-    /*
-    =================================================
-      Z LIMIT
-
-      Prevent cubes from flying toward the camera.
-    =================================================
-    */
-
     position.z = THREE.MathUtils.clamp(
       position.z,
       -0.35,
@@ -265,11 +216,9 @@ function TechCubeItem({
     );
 
 
-    /*
-    =================================================
-      INDEPENDENT ROTATION
-    =================================================
-    */
+    /* -----------------------------------------------
+       ROTATION
+    ------------------------------------------------ */
 
     group.current.rotation.x +=
       velocity.current.y * 0.06;
@@ -277,6 +226,10 @@ function TechCubeItem({
     group.current.rotation.y +=
       velocity.current.x * 0.06;
 
+
+    /* -----------------------------------------------
+       ROTATION LIMIT
+    ------------------------------------------------ */
 
     group.current.rotation.x =
       THREE.MathUtils.clamp(
@@ -297,11 +250,15 @@ function TechCubeItem({
   return (
     <group ref={group}>
 
+      {/* =========================================
+          CUBE
+      ========================================= */}
+
       <RoundedBox
         args={[
-          cubeSize,
-          cubeSize,
-          cubeSize,
+          CUBE_SIZE,
+          CUBE_SIZE,
+          CUBE_SIZE,
         ]}
         radius={0.10}
         smoothness={6}
@@ -319,11 +276,15 @@ function TechCubeItem({
       </RoundedBox>
 
 
+      {/* =========================================
+          TECHNOLOGY NAME
+      ========================================= */}
+
       <Text
         position={[
           0,
           0,
-          cubeSize / 2 + 0.02,
+          CUBE_SIZE / 2 + 0.02,
         ]}
         fontSize={0.10}
         maxWidth={0.62}
@@ -342,14 +303,11 @@ function TechCubeItem({
 }
 
 
-/*
-=====================================================
-  SCENE
-=====================================================
-*/
+/* =====================================================
+   THREE.JS SCENE
+===================================================== */
 
 function TechScene() {
-
   const mouse = useRef({
     x: 0,
     y: 0,
@@ -358,66 +316,50 @@ function TechScene() {
   const { viewport } = useThree();
 
 
-  /*
-  ===================================================
-    CUBE BOUNDARIES
+  /* =================================================
+     PLAYGROUND BOUNDARIES
 
-    Based directly on the actual Canvas viewport.
-    This means the cubes stay inside the visible
-    technology plane even if the screen changes size.
-  ===================================================
-  */
+     Keep enough space around the cubes.
+  ================================================= */
 
-  const padding = 0.45;
+  const bounds = useMemo(() => {
+    const horizontalPadding = 0.55;
+    const verticalPadding = 0.55;
 
-  const bounds = {
-    minX:
-      -viewport.width / 2 +
-      cubeSize / 2 +
-      padding,
+    return {
+      minX:
+        -viewport.width / 2 +
+        CUBE_SIZE / 2 +
+        horizontalPadding,
 
-    maxX:
-      viewport.width / 2 -
-      cubeSize / 2 -
-      padding,
+      maxX:
+        viewport.width / 2 -
+        CUBE_SIZE / 2 -
+        horizontalPadding,
 
-    minY:
-      -viewport.height / 2 +
-      cubeSize / 2 +
-      padding,
+      minY:
+        -viewport.height / 2 +
+        CUBE_SIZE / 2 +
+        verticalPadding,
 
-    maxY:
-      viewport.height / 2 -
-      cubeSize / 2 -
-      padding,
-  };
+      maxY:
+        viewport.height / 2 -
+        CUBE_SIZE / 2 -
+        verticalPadding,
+    };
+  }, [viewport.width, viewport.height]);
 
 
-  /*
-  ===================================================
-    POINTER MOVEMENT
-
-    Convert mouse NDC [-1,1] into actual 3D
-    coordinates of the Canvas.
-  ===================================================
-  */
+  /* =================================================
+     MOUSE POSITION
+  ================================================= */
 
   const handlePointerMove = (event) => {
-
     mouse.current.x =
-      (event.pointer.x *
-        viewport.width) /
-      2;
+      (event.pointer.x * viewport.width) / 2;
 
     mouse.current.y =
-      (event.pointer.y *
-        viewport.height) /
-      2;
-
-
-    /*
-    Keep cursor interaction inside plane.
-    */
+      (event.pointer.y * viewport.height) / 2;
 
     mouse.current.x =
       THREE.MathUtils.clamp(
@@ -435,14 +377,28 @@ function TechScene() {
   };
 
 
+  /* =================================================
+     RESET MOUSE WHEN POINTER LEAVES
+  ================================================= */
+
+  const handlePointerLeave = () => {
+    mouse.current.x = 0;
+    mouse.current.y = 0;
+  };
+
+
   return (
     <>
+      {/* =========================================
+          LIGHTING
+      ========================================= */}
 
       <ambientLight intensity={1.4} />
 
       <directionalLight
         position={[3, 5, 6]}
         intensity={2.4}
+        castShadow
       />
 
       <pointLight
@@ -456,10 +412,15 @@ function TechScene() {
       />
 
 
-      <group
-        onPointerMove={handlePointerMove}
-      >
+      {/* =========================================
+          CUBES
+      ========================================= */}
 
+      <group
+        position={[1, 0, 0]}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+      >
         {technologies.map(
           (technology, index) => (
             <TechCubeItem
@@ -471,22 +432,17 @@ function TechScene() {
             />
           )
         )}
-
       </group>
-
     </>
   );
 }
 
 
-/*
-=====================================================
-  MAIN COMPONENT
-=====================================================
-*/
+/* =====================================================
+   MAIN TECH CUBE COMPONENT
+===================================================== */
 
 export default function TechCube() {
-
   return (
     <div className="technology-cubes">
 
@@ -498,9 +454,7 @@ export default function TechCube() {
         shadows
         dpr={[1, 2]}
       >
-
         <TechScene />
-
       </Canvas>
 
     </div>

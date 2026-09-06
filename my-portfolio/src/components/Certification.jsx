@@ -1,98 +1,73 @@
 import React, { useState } from "react";
 
-
 const projects = [
   {
-    title: "AI Agent Platform",
+    title: "Python Programming Certificate",
     description:
-      "Multi-agent AI system built using LangGraph, MCP and FastAPI.",
-    image: "/assets/projects/agent.png",
-    tech: ["LangGraph", "MCP", "FastAPI"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Certificate in Python programming covering core programming concepts, problem-solving, and practical Python development.",
+    image: "/assets/certificates/python.png",
+    tech: ["Python", "Programming", "Problem Solving"],
+    issuer: "Open Edge Python Institute",
   },
   {
-    title: "Talus.AI",
+    title: "English for IT 2",
     description:
-      "AI-powered mining safety platform for rockfall monitoring and alerts.",
-    image: "/assets/projects/talus.png",
-    tech: ["React", "Node.js", "MongoDB"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Cisco certification focused on professional English communication, IT terminology, workplace communication, and technical vocabulary.",
+    image: "/assets/certificates/english-it.png",
+    tech: ["English", "IT Communication", "Professional Skills"],
+    issuer: "Cisco",
   },
   {
-    title: "Business Management System",
+    title: "AI Agents",
     description:
-      "Full-stack application for managing customers, products and orders.",
-    image: "/assets/projects/business.png",
-    tech: ["React", "Express", "MongoDB"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Hands-on certification covering AI Agent development, LangGraph, MCP, agent workflows, orchestration, and FastAPI integration.",
+    image: "/assets/certificates/ai-agents.png",
+    tech: ["AI Agents", "LangGraph", "MCP", "FastAPI"],
+    issuer: "ViqriLabs Pvt. Ltd.",
   },
   {
-    title: "AI Resume Analyzer",
+    title: "DSA – 160 Days Problem Solving",
     description:
-      "AI application that analyzes resumes and compares them with job descriptions.",
-    image: "/assets/projects/resume.png",
-    tech: ["Python", "FastAPI", "LLM"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Completed an intensive 160-day Data Structures and Algorithms problem-solving program covering arrays, strings, trees, graphs, dynamic programming, and competitive programming concepts.",
+    image: "/assets/certificates/dsa-160.png",
+    tech: ["DSA", "Algorithms", "Problem Solving", "GFG"],
+    issuer: "GeeksforGeeks",
   },
   {
-    title: "AI Customer Support",
+    title: "Generative AI Powered Data Analytics",
     description:
-      "RAG-powered customer support agent using company knowledge.",
-    image: "/assets/projects/support.png",
-    tech: ["RAG", "LangGraph", "Python"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Certification focused on using Generative AI and modern analytics techniques to analyze data, generate insights, and support data-driven decision making.",
+    image: "/assets/certificates/genai-data-analytics.png",
+    tech: ["Generative AI", "Data Analytics", "AI"],
+    issuer: "TATA",
   },
   {
-    title: "AI Trading Bot",
+    title: "Introduction to Cybersecurity",
     description:
-      "Automated trading bot designed for short-term trading strategies.",
-    image: "/assets/projects/trading.png",
-    tech: ["React", "Node.js", "API"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Cisco cybersecurity certification covering fundamental security concepts, cyber threats, vulnerabilities, protection strategies, and cybersecurity awareness.",
+    image: "/assets/certificates/cybersecurity-intro.png",
+    tech: ["Cybersecurity", "Network Security", "Threats"],
+    issuer: "Cisco",
   },
   {
-    title: "AI Chatbot",
+    title: "Cybersecurity Essentials",
     description:
-      "Conversational AI application powered by Gemini API.",
-    image: "/assets/projects/chatbot.png",
-    tech: ["React", "Gemini", "Node.js"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Certification covering essential cybersecurity principles, network security, common cyber attacks, security technologies, and defensive practices.",
+    image: "/assets/certificates/cybersecurity-essentials.png",
+    tech: ["Cybersecurity", "Network Security", "Security"],
+    issuer: "Cisco",
   },
   {
-    title: "3D Developer Portfolio",
+    title: "Cisco Packet Tracer",
     description:
-      "Interactive developer portfolio with 3D technology elements.",
-    image: "/assets/projects/portfolio.png",
-    tech: ["React", "Three.js", "R3F"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
-  },
-  {
-    title: "PDF Merger",
-    description:
-      "Web application for combining multiple PDF documents.",
-    image: "/assets/projects/pdf.png",
-    tech: ["React", "Node.js", "Express"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
-  },
-  {
-    title: "Air Quality Monitor",
-    description:
-      "IoT system for monitoring environmental conditions and air quality.",
-    image: "/assets/projects/air.png",
-    tech: ["ESP32", "Arduino", "IoT"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
+      "Hands-on networking certification and practical experience using Cisco Packet Tracer to design, configure, and troubleshoot network topologies.",
+    image: "/assets/certificates/packet-tracer.png",
+    tech: ["Cisco", "Networking", "Packet Tracer"],
+    issuer: "Cisco",
   },
 ];
+
+
 
 function Projects() {
   const [currentProject, setCurrentProject] = useState(0);

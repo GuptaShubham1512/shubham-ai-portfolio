@@ -1,14 +1,17 @@
 import { Canvas } from "@react-three/fiber";
 import { Stars, Sparkles } from "@react-three/drei";
-
+import React from "react";
+import shubhamImage from "./assets/shubham.jpeg";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechCube from "./components/TechCube";
 import Technology from "./components/technology";
 import Projects from "./components/Projects";
 import "./index.css";
-
-
+import Certification from "./components/Certification";
+import Achievements from "./components/Achievments";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="app">
@@ -57,7 +60,7 @@ function App() {
       <div className="fixed-human">
         <div className="human-image-wrapper">
           <img
-            src="/ai/shubham.jpeg"
+            src={shubhamImage}
             alt="Shubham Gupta"
             className="human-image"
           />
@@ -100,22 +103,19 @@ function App() {
 
        <Projects/>
 
+       <Certification/>
+
+       <Achievements/>
+       <Contact/>
+       <Footer/>
+     
+       
+
         {/* =========================================
             CONTACT
         ========================================= */}
 
-        <section
-          className="dummy-section"
-          id="contact"
-        >
-          <h2>
-            Let's Connect
-          </h2>
-
-          <p>
-            Let's build something intelligent together.
-          </p>
-        </section>
+        
 
       </div>
 
