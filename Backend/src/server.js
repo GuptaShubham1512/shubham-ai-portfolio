@@ -13,6 +13,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://shubham-ai-portfolio.vercel.app",
+      "https://shubham-ai-portfolio-backend.onrender.com"
     ],
   }),
 );
