@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Chatbot.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +34,7 @@ function Chatbot() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,11 +47,7 @@ function Chatbot() {
       if (!response.ok) {
         const errorText = await response.text();
 
-        console.error(
-          "Backend Error:",
-          response.status,
-          errorText
-        );
+        console.error("Backend Error:", response.status, errorText);
 
         throw new Error(`Server returned ${response.status}`);
       }
@@ -103,9 +101,6 @@ function Chatbot() {
 
   return (
     <>
-      {/* =========================================
-          FLOATING AI BUTTON
-      ========================================= */}
       {!isOpen && (
         <button
           className="ai-chat-trigger"
@@ -121,18 +116,11 @@ function Chatbot() {
         </button>
       )}
 
-      {/* =========================================
-          CHATBOT POPUP
-      ========================================= */}
       {isOpen && (
         <div className="chatbot-popup">
-
-          {/* Header */}
           <div className="chatbot-header">
             <div className="chatbot-profile">
-              <div className="ai-avatar">
-                ✦
-              </div>
+              <div className="ai-avatar">✦</div>
 
               <div>
                 <h3>Shubham AI</h3>
@@ -153,9 +141,7 @@ function Chatbot() {
             </button>
           </div>
 
-          {/* Messages */}
           <div className="chat-messages">
-
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -169,9 +155,7 @@ function Chatbot() {
                   <button
                     className="navigation-button"
                     onClick={() =>
-                      handleNavigation(
-                        message.navigation.target
-                      )
+                      handleNavigation(message.navigation.target)
                     }
                   >
                     {message.navigation.label} →
@@ -180,7 +164,6 @@ function Chatbot() {
               </div>
             ))}
 
-            {/* Typing */}
             {loading && (
               <div className="message assistant">
                 <div className="message-content">
@@ -192,19 +175,14 @@ function Chatbot() {
                 </div>
               </div>
             )}
-
           </div>
 
-          {/* Input */}
           <div className="chat-input-area">
-
             <input
               type="text"
               value={input}
               placeholder="Ask about Shubham..."
-              onChange={(e) =>
-                setInput(e.target.value)
-              }
+              onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   sendMessage();
@@ -216,16 +194,12 @@ function Chatbot() {
             <button
               className="send-button"
               onClick={sendMessage}
-              disabled={
-                loading || !input.trim()
-              }
+              disabled={loading || !input.trim()}
               aria-label="Send message"
             >
               ➤
             </button>
-
           </div>
-
         </div>
       )}
     </>
