@@ -14,7 +14,7 @@ app.use(
       "http://localhost:5173",
       "https://shubham-ai-portfolio.vercel.app",
     ],
-  })
+  }),
 );
 
 app.use(express.json());
