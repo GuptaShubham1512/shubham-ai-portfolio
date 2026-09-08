@@ -17,6 +17,7 @@ app.use(
       "http://localhost:5173",
       "https://shubham-ai-portfolio.vercel.app",
       "https://my-portfolio-jade-five-50.vercel.app",
+      "https://ai-portfolio6.vercel.app",
     ],
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
