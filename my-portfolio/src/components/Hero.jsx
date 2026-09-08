@@ -1,5 +1,5 @@
-import ChatAssistant from "./ChatAssistant";
-
+import Chatbot from "./Chatbot";
+import shubhamImage from "../assets/shubham.jpeg";
 function Hero() {
   return (
     <section
@@ -113,7 +113,7 @@ function Hero() {
           CHATBOT
       ========================================= */}
 
-      <ChatAssistant />
+      <Chatbot />
 
     </section>
   );

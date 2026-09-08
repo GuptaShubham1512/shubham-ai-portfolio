@@ -1,220 +1,220 @@
-import { useState } from "react";
+// import { useState } from "react";
 
-function ChatAssistant() {
+// function ChatAssistant() {
 
-  const [isOpen, setIsOpen] = useState(false);
+//   const [isOpen, setIsOpen] = useState(false);
 
-  const [input, setInput] = useState("");
+//   const [input, setInput] = useState("");
 
-  const [messages, setMessages] = useState([
-    {
-      type: "assistant",
-      text:
-        "Hey 👋 I'm Shubham's AI assistant. Ask me anything about Shubham."
-    }
-  ]);
+//   const [messages, setMessages] = useState([
+//     {
+//       type: "assistant",
+//       text:
+//         "Hey 👋 I'm Shubham's AI assistant. Ask me anything about Shubham."
+//     }
+//   ]);
 
 
-  const sendMessage = () => {
+//   const sendMessage = () => {
 
-    if (!input.trim()) {
-      return;
-    }
+//     if (!input.trim()) {
+//       return;
+//     }
 
 
-    setMessages((previous) => [
+//     setMessages((previous) => [
 
-      ...previous,
+//       ...previous,
 
-      {
-        type: "user",
-        text: input
-      },
+//       {
+//         type: "user",
+//         text: input
+//       },
 
-      {
-        type: "assistant",
-        text:
-          "I'm connecting to Shubham's AI backend 🤖"
-      }
+//       {
+//         type: "assistant",
+//         text:
+//           "I'm connecting to Shubham's AI backend 🤖"
+//       }
 
-    ]);
+//     ]);
 
 
-    setInput("");
-  };
+//     setInput("");
+//   };
 
 
-  const handleKeyDown = (event) => {
+//   const handleKeyDown = (event) => {
 
-    if (event.key === "Enter") {
+//     if (event.key === "Enter") {
 
-      sendMessage();
+//       sendMessage();
 
-    }
+//     }
 
-  };
+//   };
 
 
-  /* =========================================
-     CLOSED
-  ========================================= */
+//   /* =========================================
+//      CLOSED
+//   ========================================= */
 
-  if (!isOpen) {
+//   if (!isOpen) {
 
-    return (
+//     return (
 
-      <div className="floating-chat">
+//       <div className="floating-chat">
 
-        <button
-          className="chat-popup-tab"
-          onClick={() => setIsOpen(true)}
-        >
+//         <button
+//           className="chat-popup-tab"
+//           onClick={() => setIsOpen(true)}
+//         >
 
-          <span className="chat-tab-icon">
-            ✦
-          </span>
+//           <span className="chat-tab-icon">
+//             ✦
+//           </span>
 
-          <span>
-            Ask Shubham AI
-          </span>
+//           <span>
+//             Ask Shubham AI
+//           </span>
 
-          <span className="chat-tab-arrow">
-            ↑
-          </span>
+//           <span className="chat-tab-arrow">
+//             ↑
+//           </span>
 
-        </button>
+//         </button>
 
-      </div>
+//       </div>
 
-    );
+//     );
 
-  }
+//   }
 
 
-  /* =========================================
-     OPEN
-  ========================================= */
+//   /* =========================================
+//      OPEN
+//   ========================================= */
 
-  return (
+//   return (
 
-    <div className="floating-chat">
+//     <div className="floating-chat">
 
-      <div className="chat-box">
+//       <div className="chat-box">
 
-        <div className="chat-top">
+//         <div className="chat-top">
 
-          <div className="assistant-info">
+//           <div className="assistant-info">
 
-            <div className="assistant-icon">
-              ✦
-            </div>
+//             <div className="assistant-icon">
+//               ✦
+//             </div>
 
-            <div>
+//             <div>
 
-              <h3>
-                Shubham AI
-              </h3>
+//               <h3>
+//                 Shubham AI
+//               </h3>
 
-              <p>
-                <span></span>
-                Online
-              </p>
+//               <p>
+//                 <span></span>
+//                 Online
+//               </p>
 
-            </div>
+//             </div>
 
-          </div>
+//           </div>
 
 
-          <button
-            className="chat-close"
-            onClick={() => setIsOpen(false)}
-          >
-            ×
-          </button>
+//           <button
+//             className="chat-close"
+//             onClick={() => setIsOpen(false)}
+//           >
+//             ×
+//           </button>
 
-        </div>
+//         </div>
 
 
-        <div className="messages">
+//         <div className="messages">
 
-          {messages.map(
-            (message, index) => (
+//           {messages.map(
+//             (message, index) => (
 
-              <div
-                key={index}
-                className={`message ${message.type}`}
-              >
-                {message.text}
-              </div>
+//               <div
+//                 key={index}
+//                 className={`message ${message.type}`}
+//               >
+//                 {message.text}
+//               </div>
 
-            )
-          )}
+//             )
+//           )}
 
-        </div>
+//         </div>
 
 
-        <div className="quick-actions">
+//         <div className="quick-actions">
 
-          <button
-            onClick={() =>
-              setInput(
-                "Tell me about Shubham's projects"
-              )
-            }
-          >
-            Projects
-          </button>
+//           <button
+//             onClick={() =>
+//               setInput(
+//                 "Tell me about Shubham's projects"
+//               )
+//             }
+//           >
+//             Projects
+//           </button>
 
-          <button
-            onClick={() =>
-              setInput(
-                "What AI technologies does Shubham know?"
-              )
-            }
-          >
-            AI Skills
-          </button>
+//           <button
+//             onClick={() =>
+//               setInput(
+//                 "What AI technologies does Shubham know?"
+//               )
+//             }
+//           >
+//             AI Skills
+//           </button>
 
-          <button
-            onClick={() =>
-              setInput(
-                "Tell me about Shubham"
-              )
-            }
-          >
-            About
-          </button>
+//           <button
+//             onClick={() =>
+//               setInput(
+//                 "Tell me about Shubham"
+//               )
+//             }
+//           >
+//             About
+//           </button>
 
-        </div>
+//         </div>
 
 
-        <div className="input-area">
+//         <div className="input-area">
 
-          <input
-            type="text"
-            placeholder="Ask me anything..."
-            value={input}
-            onChange={(event) =>
-              setInput(event.target.value)
-            }
-            onKeyDown={handleKeyDown}
-          />
+//           <input
+//             type="text"
+//             placeholder="Ask me anything..."
+//             value={input}
+//             onChange={(event) =>
+//               setInput(event.target.value)
+//             }
+//             onKeyDown={handleKeyDown}
+//           />
 
 
-          <button
-            className="send-button"
-            onClick={sendMessage}
-          >
-            ↑
-          </button>
+//           <button
+//             className="send-button"
+//             onClick={sendMessage}
+//           >
+//             ↑
+//           </button>
 
-        </div>
+//         </div>
 
-      </div>
+//       </div>
 
-    </div>
+//     </div>
 
-  );
-}
+//   );
+// }
 
-export default ChatAssistant;
+// export default ChatAssistant;

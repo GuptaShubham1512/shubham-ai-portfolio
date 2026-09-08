@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Stars, Sparkles } from "@react-three/drei";
 import React from "react";
-
+import Chatbot from "./components/Chatbot";
 import shubhamImage from "./assets/shubham.jpeg";
 
 import Navbar from "./components/Navbar";
@@ -71,64 +71,70 @@ function App() {
       {/* =========================================
           WEBSITE CONTENT
       ========================================= */}
-      <div className="website">
+     {/* =========================================
+    WEBSITE CONTENT
+========================================= */}
+<div className="website">
 
-        {/* =========================================
-            NAVBAR
-        ========================================= */}
-        <Navbar />
+  {/* NAVBAR */}
+  <Navbar />
 
-        {/* =========================================
-            HOME
-        ========================================= */}
-        <section id="home">
-          <Hero />
-        </section>
+  {/* =========================================
+      HOME
+  ========================================= */}
+  <section id="home">
+    <Hero />
+  </section>
 
-        {/* =========================================
-            TECHNOLOGY / SKILLS
-        ========================================= */}
-        <section id="technology">
-          <Technology />
+  {/* =========================================
+      SKILLS / TECHNOLOGY
+  ========================================= */}
+  <section id="skills">
+    <Technology />
 
-          {/* 3D Technology Cubes */}
-          <TechCube />
-        </section>
+    {/* 3D Technology Cubes */}
+    <TechCube />
+  </section>
 
-        {/* =========================================
-            PROJECTS
-        ========================================= */}
-        <section id="projects">
-          <Projects />
-        </section>
+  {/* =========================================
+      PROJECTS
+  ========================================= */}
+  <section id="projects">
+    <Projects />
+  </section>
 
-        {/* =========================================
-            CERTIFICATES
-        ========================================= */}
-        <section id="certificates">
-          <Certification />
-        </section>
+  {/* =========================================
+      CERTIFICATIONS
+  ========================================= */}
+  <section id="certifications">
+    <Certification />
+  </section>
 
-        {/* =========================================
-            ACHIEVEMENTS
-        ========================================= */}
-        <section id="achievements">
-          <Achievements />
-        </section>
+  {/* =========================================
+      ACHIEVEMENTS
+  ========================================= */}
+  <section id="achievements">
+    <Achievements />
+  </section>
 
-        {/* =========================================
-            CONTACT
-        ========================================= */}
-        <section id="contact">
-          <Contact />
-        </section>
+  {/* =========================================
+      CONTACT
+  ========================================= */}
+  <section id="contact">
+    <Contact />
+  </section>
 
-        {/* =========================================
-            FOOTER
-        ========================================= */}
-        <Footer />
+  {/* =========================================
+      FOOTER
+  ========================================= */}
+  <Footer />
 
-      </div>
+  {/* =========================================
+      AI PORTFOLIO CHATBOT
+  ========================================= */}
+  <Chatbot />
+
+</div>
     </div>
   );
 }

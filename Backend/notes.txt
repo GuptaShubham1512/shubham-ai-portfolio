@@ -1,0 +1,46 @@
+if recruiter asks:
+
+"Which projects demonstrate his AI skills?"
+
+        ↓
+
+analyze_query
+
+        ↓
+
+intent = "projects"
+topic = "AI"
+
+        ↓
+
+projects_agent
+
+        ↓
+
+find relevant projects
+
+        ↓
+
+response_generator
+
+        ↓
+
+navigation_agent
+
+        ↓
+
+View Projects
+
+
+
+                    Portfolio Agent
+                          │
+             ┌────────────┼────────────┐
+             ↓            ↓            ↓
+       searchProjects  searchSkills  searchCertifications
+             │            │            │
+             └────────────┼────────────┘
+                          ↓
+                    Gemini 2.5 Flash
+                          ↓
+                    Final Response
