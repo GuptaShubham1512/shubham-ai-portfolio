@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Chatbot.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = "https://shubham-ai-portfolio-backend.onrender.com";
 
 function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
