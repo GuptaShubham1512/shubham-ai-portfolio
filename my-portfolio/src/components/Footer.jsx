@@ -33,7 +33,7 @@ function Footer() {
           <div className="mantra-wrapper">
 
             <p className="sanskrit-text">
-              तमसो मा ज्योतिर्गमय
+              यथा दृष्टि तथा सृष्टि
             </p>
 
             <p className="mantra-translation">

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import pythonCert from "../assets/certificates/image.png";
 
+
+
 const projects = [
   {
     title: "Python Programming Certificate",
@@ -14,7 +16,7 @@ const projects = [
     title: "English for IT 2",
     description:
       "Cisco certification focused on professional English communication, IT terminology, workplace communication, and technical vocabulary.",
-    image: "/assets/certificates/english-it.png",
+    image: "https://media.geeksforgeeks.org/wp-content/uploads/20220816100116/Cisco.png",
     tech: ["English", "IT Communication", "Professional Skills"],
     issuer: "Cisco",
   },
@@ -22,7 +24,7 @@ const projects = [
     title: "AI Agents",
     description:
       "Hands-on certification covering AI Agent development, LangGraph, MCP, agent workflows, orchestration, and FastAPI integration.",
-    image: "/assets/certificates/ai-agents.png",
+    image: "https://avatars.githubusercontent.com/u/126733545?s=200&v=4",
     tech: ["AI Agents", "LangGraph", "MCP", "FastAPI"],
     issuer: "ViqriLabs Pvt. Ltd.",
   },
@@ -30,7 +32,7 @@ const projects = [
     title: "DSA – 160 Days Problem Solving",
     description:
       "Completed an intensive 160-day Data Structures and Algorithms problem-solving program covering arrays, strings, trees, graphs, dynamic programming, and competitive programming concepts.",
-    image: "/assets/certificates/dsa-160.png",
+    image: "https://media.geeksforgeeks.org/gfg-gg-logo.svg",
     tech: ["DSA", "Algorithms", "Problem Solving", "GFG"],
     issuer: "GeeksforGeeks",
   },
@@ -38,7 +40,7 @@ const projects = [
     title: "Generative AI Powered Data Analytics",
     description:
       "Certification focused on using Generative AI and modern analytics techniques to analyze data, generate insights, and support data-driven decision making.",
-    image: "/assets/certificates/genai-data-analytics.png",
+    image: "https://www.tata.com/content/dam/tata/images/logo.svg",
     tech: ["Generative AI", "Data Analytics", "AI"],
     issuer: "TATA",
   },
@@ -46,7 +48,7 @@ const projects = [
     title: "Introduction to Cybersecurity",
     description:
       "Cisco cybersecurity certification covering fundamental security concepts, cyber threats, vulnerabilities, protection strategies, and cybersecurity awareness.",
-    image: "/assets/certificates/cybersecurity-intro.png",
+    image: "https://media.geeksforgeeks.org/wp-content/uploads/20220816100116/Cisco.png",
     tech: ["Cybersecurity", "Network Security", "Threats"],
     issuer: "Cisco",
   },
@@ -54,7 +56,7 @@ const projects = [
     title: "Cybersecurity Essentials",
     description:
       "Certification covering essential cybersecurity principles, network security, common cyber attacks, security technologies, and defensive practices.",
-    image: "/assets/certificates/cybersecurity-essentials.png",
+    image: "https://media.geeksforgeeks.org/wp-content/uploads/20220816100116/Cisco.png",
     tech: ["Cybersecurity", "Network Security", "Security"],
     issuer: "Cisco",
   },
@@ -62,11 +64,13 @@ const projects = [
     title: "Cisco Packet Tracer",
     description:
       "Hands-on networking certification and practical experience using Cisco Packet Tracer to design, configure, and troubleshoot network topologies.",
-    image: "/assets/certificates/packet-tracer.png",
+    image: "https://media.geeksforgeeks.org/wp-content/uploads/20220816100116/Cisco.png",
     tech: ["Cisco", "Networking", "Packet Tracer"],
     issuer: "Cisco",
   },
 ];
+
+
 
 
 

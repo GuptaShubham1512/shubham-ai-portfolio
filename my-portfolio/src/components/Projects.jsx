@@ -3,95 +3,72 @@ import React, { useState } from "react";
 
 const projects = [
   {
-    title: "AI Agent Platform",
+    title: "S2-Trading Indicator Engine",
     description:
-      "Multi-agent AI system built using LangGraph, MCP and FastAPI.",
-    image: "/assets/projects/agent.png",
-    tech: ["LangGraph", "MCP", "FastAPI"],
+      "Real-time NIFTY trading analytics platform combining VWAP, RSI, EMA and custom S2 entry, exit and risk logic.",
+    image:
+      "https://s3.tradingview.com/snapshots/8/8GB6Mhzh.png",
+    tech: ["React", "Node.js", "Express", "WebSocket", "MongoDB"],
     github: "https://github.com/GuptaShubham1512",
     live: "#",
   },
+
   {
     title: "Talus.AI",
     description:
-      "AI-powered mining safety platform for rockfall monitoring and alerts.",
-    image: "/assets/projects/talus.png",
-    tech: ["React", "Node.js", "MongoDB"],
-    github: "https://github.com/GuptaShubham1512",
+      "AI-powered mining safety platform for rockfall risk monitoring, alerts and intelligent safety insights.",
+    image:
+      "https://0701.static.prezi.com/preview/v2/c3vmkioh6wyp2xed7l5dfr6w636jc3sachvcdoaizecfr3dnitcq_3_0.png",
+    tech: ["React", "Node.js", "Express", "MongoDB", "LangChain", "Gemini"],
+    github: "https://github.com/GuptaShubham1512/Mining",
     live: "#",
   },
+
   {
     title: "Business Management System",
     description:
-      "Full-stack application for managing customers, products and orders.",
-    image: "/assets/projects/business.png",
-    tech: ["React", "Express", "MongoDB"],
-    github: "https://github.com/GuptaShubham1512",
+      "Full-stack MERN application for managing customers, products, orders and business analytics.",
+    image:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
+    tech: ["React", "Node.js", "Express", "MongoDB", "JWT", "Gemini"],
+    github: "https://github.com/GuptaShubham1512/Sales-Manager",
     live: "#",
   },
+
   {
-    title: "AI Resume Analyzer",
+    title: "AI Financial Advisor",
     description:
-      "AI application that analyzes resumes and compares them with job descriptions.",
-    image: "/assets/projects/resume.png",
-    tech: ["Python", "FastAPI", "LLM"],
-    github: "https://github.com/GuptaShubham1512",
+      "AI-powered financial analysis application that analyzes financial data and provides personalized insights using Gemini.",
+    image:
+      "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80",
+    tech: ["Python", "Streamlit", "Gemini API", "Pandas"],
+    github: "https://github.com/GuptaShubham1512/financial-advisor-ai",
     live: "#",
   },
-  {
-    title: "AI Customer Support",
-    description:
-      "RAG-powered customer support agent using company knowledge.",
-    image: "/assets/projects/support.png",
-    tech: ["RAG", "LangGraph", "Python"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
-  },
-  {
-    title: "AI Trading Bot",
-    description:
-      "Automated trading bot designed for short-term trading strategies.",
-    image: "/assets/projects/trading.png",
-    tech: ["React", "Node.js", "API"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
-  },
+
   {
     title: "AI Chatbot",
     description:
-      "Conversational AI application powered by Gemini API.",
-    image: "/assets/projects/chatbot.png",
-    tech: ["React", "Gemini", "Node.js"],
-    github: "https://github.com/GuptaShubham1512",
+      "Conversational AI application that provides intelligent responses using the Gemini API.",
+    image:
+      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=1200&q=80",
+    tech: ["React", "Node.js", "Gemini API"],
+    github: "https://github.com/GuptaShubham1512/shubham-ai-portfolio",
     live: "#",
   },
+
   {
     title: "3D Developer Portfolio",
     description:
-      "Interactive developer portfolio with 3D technology elements.",
-    image: "/assets/projects/portfolio.png",
-    tech: ["React", "Three.js", "R3F"],
-    github: "https://github.com/GuptaShubham1512",
+      "Interactive 3D developer portfolio showcasing projects, technical skills and an AI-powered chatbot.",
+    image:
+      "https://user-images.githubusercontent.com/140153463/267377369-2f298470-a7fa-4555-a6b0-75aba70306f4.PNG",
+    tech: ["React", "Three.js", "React Three Fiber", "LangChain", "Gemini"],
+    github: "https://github.com/GuptaShubham1512/shubham-ai-portfolio",
     live: "#",
   },
-  {
-    title: "PDF Merger",
-    description:
-      "Web application for combining multiple PDF documents.",
-    image: "/assets/projects/pdf.png",
-    tech: ["React", "Node.js", "Express"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
-  },
-  {
-    title: "Air Quality Monitor",
-    description:
-      "IoT system for monitoring environmental conditions and air quality.",
-    image: "/assets/projects/air.png",
-    tech: ["ESP32", "Arduino", "IoT"],
-    github: "https://github.com/GuptaShubham1512",
-    live: "#",
-  },
+
+ 
 ];
 
 function Projects() {

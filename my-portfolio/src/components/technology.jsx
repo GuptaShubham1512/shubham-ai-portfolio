@@ -99,17 +99,7 @@ function Technology() {
             ACHIEVEMENTS
         ========================================= */}
 
-        <div className="technology-info">
-
-          <div className="technology-stat">
-            <strong>
-              <span>300+</span>
-            </strong>
-
-            <p>
-              DSA Questions
-            </p>
-          </div>
+        
 
 
           <div className="technology-stat">
@@ -131,7 +121,7 @@ function Technology() {
             <p>
               Projects
             </p>
-          </div>
+          
 
         </div>
 
@@ -140,62 +130,18 @@ function Technology() {
             BUTTONS
         ========================================= */}
 
-        <div className="hero-actions">
-
-          <a
-            href="#projects"
-            className="primary-btn"
-          >
-            Explore My Work
-
-            <span>
-              ↗
-            </span>
-          </a>
+       
+          
 
 
-          <a
-            href="#contact"
-            className="outline-btn"
-          >
-            Let's Connect
-          </a>
-
-        </div>
+         
 
 
         {/* =========================================
             SOCIAL LINKS
         ========================================= */}
 
-        <div className="social-links">
-
-          <a
-            href="https://github.com/GuptaShubham1512"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-
-          <span>•</span>
-
-          <a
-            href="#"
-          >
-            LinkedIn
-          </a>
-
-          <span>•</span>
-
-          <a
-            href="#"
-          >
-            Resume
-          </a>
-
-        </div>
-
+        
       </div>
 
 
